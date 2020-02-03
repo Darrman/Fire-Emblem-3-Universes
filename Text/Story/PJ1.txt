@@ -164,8 +164,8 @@ Quickly! To arms![A][X]
 #*Scene changes to the bridge ahead, fields background*
 
 #*Yanndahl appears on the screen. Runa approaches him.*
-[MidLeft][LoadFace][0x50][0x01]#Yanndahl
-[MidRight][LoadFace][0x54][0x01]#some random portrait, placeholder Runa
+[MidLeft][LoadYanndahl]#Yanndahl
+[MidRight][LoadRuna]#some random portrait, placeholder Runa
 
 [MR]#Runa:
 Sir Yanndahl, I presume?[A]
@@ -208,10 +208,10 @@ Prince's men start to[AN]
 show up.[A]
 
 #*Runa leaves.*
-[Clear]
+[Clear][......]
 
 [ML]#Yanndahl:
-Gah, who does that brat think she[N]
+Gah,[MoveMidLeft] who does that brat think she[N]
 is, doubting me? We're plenty[AN]
 good enough to handle some brat[N]
 prince and his riff-raff gang.[AN][X]
@@ -317,14 +317,14 @@ assassins have more men waiting[AN]
 in reserve, for sure.[A][X]
 
 ## PJ1Turn3EnemyScene
-[MidLeft][LoadFace][0x50][0x01]#Yanndahl
+[MidLeft][LoadYanndahl]
 #Yanndahl:
 This isn't good... boys![N]
 Get over here! We need[AN]
 some more men![A][X]
 
 ## PJ1Turn5EnemyScene
-[MidLeft][LoadFace][0x50][0x01]#Yanndahl
+[MidLeft][LoadYanndahl]
 #Yanndahl:
 How are those pipsqueaks[N]
 still alive? Looks like[AN]
@@ -337,7 +337,7 @@ got, boys![A]
 ## PJ1YanndahlLives
 
 #(ONLY IF YANNDAHL WAS NOT DEFEATED)
-[MidLeft][LoadFace][0x50][0x01]#Yanndahl
+[MidLeft][LoadYanndahl]
 #Yanndahl:
 Bah, I'm sick of this little game.[N]
 Boys, we're leaving! We've held[AN]
@@ -384,7 +384,7 @@ What is it, Daff?[A]
 Who's that coming[N]
 to us? Is that...[A]
 
-[ML][LoadFace][0x44][0x01]#random number, no Orion portrait
+[ML][LoadOrion]
 #while I'm at it: I need NPC portrait space and I need to not clobber vanilla villagers
 #Orion:
 You... what are you[N]
@@ -393,8 +393,8 @@ doing here?![A][X]
 ## PJ1EndingRunaOrion
 #*camera moves up to Runa and Orion.*
 
-[MidLeft][LoadFace][0x54][0x01]#some random portrait, placeholder Runa
-[MR][LoadFace][0x44][0x01]#random number, no Orion portrait
+[MidLeft][LoadRuna]#some random portrait, placeholder Runa
+[MR][LoadOrion]
 [ML]
 #Runa:
 And that's that. The Tyrant[N]
@@ -422,8 +422,8 @@ THEY WILL BE AVENGED![A]
 
 
 ## PJ1EndingRunaOrion2
-[MidLeft][LoadFace][0x54][0x01]#some random portrait, placeholder Runa
-[MR][LoadFace][0x44][0x01]#random number, no Orion portrait
+[MidLeft][LoadRuna]#some random portrait, placeholder Runa
+[MR][LoadOrion]
 
 [MR]
 #Orion:
@@ -448,7 +448,7 @@ That's enough of you.[A][N]
 
 #*Runa throws Orion off the bridge*
 [MR][Clear]
-[ML]
+[ML][LoadOverworldFaces][.......]
 #Runa:
 Now, how does our[N]
 princeling fare?[A][X]
@@ -478,7 +478,7 @@ want us to just leave this be?![N]
 What sort of "plan" involves[AN]
 LEAVING MY PARENTS ROTTING[N]
 ON THE GROUND?![AN]
-[Right][MoveFarRight][Left][Clear][Right][LoadVergil][MidLeft][LoadFace][0x54][0x01]
+[Right][MoveFarRight][Left][Clear][Right][LoadVergil][MidLeft][LoadRuna]
 
 #Runa:
 Hmm? The princeling is still alive,[N]
@@ -533,11 +533,12 @@ than anything. Now GO![A]
 [Right]
 #Tray:
 ...Got it, Horus.[A]
+[Right][ClearFace][FarRight][ClearFace]
 #*some people get rescued and they all run offscreen*
 [X]
 
 ## PJ1EndingRunaSoloLine
-[MidLeft][LoadFace][0x54][0x01]
+[MidLeft][LoadRuna][.......]
 #Runa:
 Hah. You made the right choice,[N]
 Dark Prince. How smart of you.[AN]
@@ -671,7 +672,7 @@ You... you traitors![A]
 
 #*scene changes to the Seraphyn palace, with Arxhat and Yanndahl.*
 [MidRight][LoadFace][0x50][0x01]#Yanndahl
-[MidLeft][LoadFace][0x56][0x01]#some random number for Arxhat
+[MidLeft][LoadPlaceholder]#some random number for Arxhat
 
 [ML]
 #Arxhat:
@@ -725,8 +726,8 @@ Come on in, Commander![A]
 
 [ML][MoveFarLeft]
 [MR][Clear][Left][LoadFace][0x50][0x01]#Yanndahl
-[Right][LoadFace][0x51][0x01]#Bruckner
-[FR][LoadFace][0x52][0x01]#Darach probably
+[Right][LoadBruckner]#Bruckner
+[FR][LoadPlaceholder]#Darach probably
 
 #*Darach and Bruckner move into view of the camera*
 

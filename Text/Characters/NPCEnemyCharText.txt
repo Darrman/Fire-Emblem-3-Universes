@@ -39,6 +39,18 @@ Bear[X]
 A wild bear roaming the cave Vergil[N]
 is trapped in. Will attack anything.[X]
 
+## DarachName
+Darach[X]
+
+## DarachDesc
+Captain of Fort Theronca.[X]
+
+## LarissaName
+Larissa[X]
+
+## LarissaDesc
+Larissa[X]
+
 ## KajarnName
 Kajarn[X]
 
@@ -52,6 +64,12 @@ Rynod[X]
 ## RynodDesc
 Leader of a gang of bandits in[N]
 Hervusa's north. Blunt and harsh.[X]
+
+## IlryonName
+Ilryon[X]
+
+## IlryonDesc
+A soldier of Hervusa.[X]
 
 ## RL2HostageName
 Hostage[X]
@@ -74,7 +92,7 @@ A soldier loyal to Count Alva, a[N]
 notorious nobleman known for cruelty.[X]
 
 ## ArxhatArmyName
-Arxhat's[X]
+Seraphyn[X]
 
 ## ArxhatArmyDesc
 A soldier under the command of Arxhat,[N]
@@ -93,3 +111,9 @@ Rebel[X]
 ## AB1RebelDesc
 Villagers of Jaquine, fighting[N]
 against Hervusan misrule.[X]
+
+## OrionName
+Orion[X]
+
+## RunaName
+Runa[X]

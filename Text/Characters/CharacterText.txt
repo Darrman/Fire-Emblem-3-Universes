@@ -62,16 +62,16 @@ Kabby[X]
 Stephen[X]
 
 ## AnthonyNameTextID
-Anthony[X]
+Anton[X]
 
 ## MystNameTextID
 Myst[X]
 
-## LeoNameTextID
+## KhrisNameTextID
 Khris[X]
 
-## DianaNameTextID
-Diana[X]
+## ElleNameTextID
+Elle[X]
 
 ## ZaneNameTextID
 Zane[X]
@@ -112,6 +112,9 @@ Augustus[X]
 ## LenatoNameTextID
 Lenato[X]
 
+## KonatsuNameTextID
+Konatsu[X]
+
 ## RodinDescTextID
 Crown Prince of Novingale. Hides a grand[N]
 ambition he works on behind the scenes.[X]
@@ -137,7 +140,7 @@ A cutthroat mercenary hired[N]
 by Rodin. Brooding and sarcastic.[X]
 
 ## JonathenDescTextID
-A mercenary hired by the church.[N]
+A mercenary hired by Rodin.[N]
 Laid-back but fierce in battle.[X]
 
 ## KaidenDescTextID
@@ -189,8 +192,8 @@ A shy person. Paranoid about[N]
 being bullied.[X]
 
 ## KabbyDescTextID
-A spy for hire. Sells suspicious things[N]
-on the black market.[X]
+A spy for hire. Sells suspicious[N]
+things on the black market.[X]
 
 ## StephenDescTextID
 A gloryhound fan of himself and puns.[N]
@@ -204,13 +207,13 @@ drawing. Also likes eating food.[X]
 A member of the House. Lives to[N]
 eclipse his rival, Glac.[X]
 
-## LeoDescTextID
+## KhrisDescTextID
 A confused wanderer. Not sure what[N]
 his purpose in the world is.[X]
 
-## DianaDescTextID
-The dreaded Blade of the Council[N]
-of Hevursa. Cares for her subordinates.[X]
+## ElleDescTextID
+The distant leader of the Amber Bears.[N]
+Serves the Council for her own interests.[X]
 
 ## ZaneDescTextID
 A devout follower of ancient[N]
@@ -218,7 +221,7 @@ arts. Craves arcane knowledge.[X]
 
 ## AdamminnDescTextID
 A brigand belonging to the nobility.[N]
-Fights instead of paying a fine.[X]
+Fights to avoid paying a fine.[X]
 
 ## WilliamDescTextID
 A young man from the countryside.[N]
@@ -241,8 +244,8 @@ A reckless man. Often plays with[N]
 fire, without much fear.[X]
 
 ## ReginaldDescTextID
-Retainer to Diana. Eccentric, but[N]
-loyal to a fault and self-assured.[X]
+The fierce successor to House Hielvann.[N]
+Eccentric and self-assured.[X]
 
 ## VollsterDescTextID
 A commoner easily excited by magic.[N]
@@ -254,7 +257,7 @@ Ended up under the Amber Bears.[X]
 
 ## OccamDescTextID
 A lazy traveler from the land of[N]
-Dagda. Means well in his actions.[X]
+Belfar. Means well in his actions.[X]
 
 ## AugustusDescTextID
 A vagabond with a charming smile.[N]
@@ -263,6 +266,9 @@ Willing to lend a hand on one condition.[X]
 ## LenatoDescTextID
 A skilled archer. Travels Ternon[N]
 for opportunites to practice.[X]
+
+## KonatsuDescTextID
+Konatsu[X]
 
 #include NPCEnemyCharText.txt
 

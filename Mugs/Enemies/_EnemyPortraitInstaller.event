@@ -8,6 +8,16 @@ setMugEntry(ALVA_PORTRAIT, AlvaMug, 3, 5, 3, 3)
 AlvaMug:
 #incext PortraitFormatter "Alva.png"
 
+#define WYVERN_PORTRAIT WyvernBoss
+setMugEntry(WYVERN_PORTRAIT, WyvernMug, 1, 7, 4, 3)
+WyvernMug:
+#incext PortraitFormatter "Wyvern.png"
+
+#define AUREA_PORTRAIT 0x45
+setMugEntry(AUREA_PORTRAIT, AureaMug, 3, 5, 3, 3)
+AureaMug:
+#incext PortraitFormatter "Aurea.png"
+
 #define YANNDAHL_PORTRAIT Yanndahl
 setMugEntry(YANNDAHL_PORTRAIT, YanndahlMug, 3, 5, 3, 3) 
 YanndahlMug:
@@ -17,3 +27,29 @@ YanndahlMug:
 setMugEntry(BRUCKNER_PORTRAIT, BrucknerMug, 3, 5, 3, 3) 
 BrucknerMug:
 #incext PortraitFormatter "Bruckner.png"
+
+#define BEAR_PORTRAIT BearBoss
+setMugEntry(BEAR_PORTRAIT, BearMug, 2, 3, 5, 0)
+BearMug:
+#incext PortraitFormatter "Bear.png"
+
+#define KAJARN_PORTRAIT 0x4F
+//something at the tail end of RL bosses for now since AB bosses overwrite villagers used elsewhere
+setMugEntry(KAJARN_PORTRAIT, KajarnMug, 3, 5, 3, 3)
+KajarnMug:
+#incext PortraitFormatter "Kajarn.png"
+
+#define RUNA_PORTRAIT 0x54
+setMugEntry(RUNA_PORTRAIT, RunaMug, 2, 6, 3, 4)
+RunaMug:
+#incext PortraitFormatter "Runa.png"
+
+#define ORION_PORTRAIT 0xFE
+setMugEntry(ORION_PORTRAIT, OrionMug, 3, 5, 3, 3)
+OrionMug:
+#incext PortraitFormatter "Orion.png"
+
+#define PLACEHOLDER_PORTRAIT 0xFF
+setMugEntry(PLACEHOLDER_PORTRAIT, PlaceholderMug, 2, 5, 0, 0)
+PlaceholderMug:
+#incext PortraitFormatter "Placeholder.png"

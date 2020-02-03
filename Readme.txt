@@ -1,22 +1,75 @@
-Things you need:
+TALE OF TERNON
+DEMO 1
 
-1. Get the latest version of event assembler (v11.0.1 as of this release) and put it in the extracted folder.
-Get a clean rom called "FE8_clean.gba" and put it in the extracted folder.
-Run MAKE HACK_full when you make text or table changes, otherwise MAKE HACK_quick is enough.
+How to play:
+1. Download and run NUPS.
+2. Apply the .ups file to a clean FE8 rom.
+3. Enjoy.
 
-"Engine Hacks\Skill System\skill_definitions.event" has the list of skills that are done.
+About the hack:
+Set on the land of Ternon in 1153, Tale of Ternon tells the tale of the Empire
+of Novingale, the Kingdom of Seraphyn, and the Republic of Hevursa. Follow
+the story of one of three routes: Rodin’s Crimson Wolves, Vergil’s Purple
+Jaguars, and Elle’s Amber Bears, and watch how their actions will shape the
+future of Ternon.
 
-How to use:
-"Engine Hacks\Skill System\Skill_lists.event" has the level up skills along with which level they're learned at
-"Tables\FE8 Nightmare modules" has CSVs for editing the personal skills and class skills along with things like animations and other stuff.
-
-Credits:
-Circleseverywhere
-Colorz for debuffs, freeze, and dragon veins 
-Monkeybard & Black Mage for most of the skill icons; Blaze for Stances skill icons
-Tequila, Rossendale, StanH, Leonarth, Teraspark, SD9k, Kao, blademaster, Snakey1, Sme for skills
-Primefusion for the test map
-Str/Mag Split based off of Kirb's FE8 version which is based off of Tequila's FE7 version. RobertFPY, Pikmin1211, and Snakey1 for finalization
+There are three different routes available for the player to choose. Each is
+planned to be fifteen chapters long. This demo has the first three of each
+route available, with a total of nine chapters available to play.
 
 Known issues:
-- see issue page on github
+All known issues can be referenced on the project's GitHub page. The most
+severe issue is that the text is largely placeholder in Purple Jaguars 3 and
+Amber Bears 2 and 3. The chapter gameplay is completely present, however.
+Minor graphical issues also appear in some menus. This does not affect the
+game in any significant way.
+
+Credits:
+Kirb			Project Lead, ASM, Misc. Hacking
+Kyuzeth			Crimson Wolves Story and Dialogue
+Darrman			Chapter Eventing, Formatting Dialogue, Misc. Hacking
+A Reliable Chair	Music Composition
+HyperGammaSpaces	UI Graphic Design
+Pretsel			Portraits
+MiiK			Portraits
+Cale			Balancing
+Feier			Map Sprite Palettes
+Arch			Purple Jaguars Story
+Ganzap			Chapter Eventing, Misc. Hacking
+Glaceo			Portraits
+Mystletainn		Purple Jaguars Dialogue
+Sme			Music, Misc. Hacking
+ErrantDShephard		Worldbuilding
+L95			Portraits
+BorsDeep		Balancing
+Nobody			Portraits
+Theri			Amber Bears Story and Dialogue
+Ruffles			Amber Bears Story
+MVP			House Banners
+Lenh			Bear Map Sprite, Wyvern Portrait
+Xigdar			Balancing, Map Design, Portraits
+DerTheVaporeon		Portraits
+Blade			Playtesting, Portraits
+Pandan			Map Design
+RandomWizard		Portraits
+Raymond			Portraits, Purple Jaguar Dialogue
+Dethraxx		For Providing New Fodlan Winds 
+Peerless		Idea Guy
+Runa/Unuesu		Music, Eventing
+GratedShtick		Animations
+
+Character contributors:
+Bloopy
+Kaiden
+Jeorge Reds
+Zorua
+Xenith
+Daff
+Kabby
+BuskHusker
+Levin
+Zane Avernathy
+Adammninn
+Auto
+Snakey1
+Smoked

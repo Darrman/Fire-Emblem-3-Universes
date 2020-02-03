@@ -26,7 +26,33 @@ POIN NewSaveMenu
 ORG $AA43C
 POIN NewSaveMenu
 
+ORG $AC188
+POIN DifficultySelect
+
+ORG $A29518
+#incext Png2Dmp "pal-a2e1b8.png" --palette-only
+
+ORG $A29498
+#incext Png2Dmp "pal-a2e1b8.png" --palette-only
+
+ORG $A294D8
+#incext Png2Dmp "pal-a2e1b8.png" --palette-only
+
+ORG $A29418
+#incext Png2Dmp "pal-a2e1b8.png" --palette-only
+
+ORG $A29538
+#incext Png2Dmp "pal-a27fe8.png" --palette-only
+
+ORG $A294B8
+#incext Png2Dmp "pal-a27fe8.png" --palette-only
+
+ORG $A294F8
+#incext Png2Dmp "pal-a27fe8.png" --palette-only
+
+
 POP
+
 
 ALIGN 4
 MenuBannerGfx:
@@ -48,3 +74,6 @@ ALIGN 4
 MenuBanner2Pal:
 #incbin "a2d32c.pal.bin" 
 
+ALIGN 4
+DifficultySelect:
+#incext Png2Dmp "DifficultySelect.png" --lz77

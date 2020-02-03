@@ -5,6 +5,8 @@
 #define GiveItem(Item,Character) "CALL $591F40; SMOV 0x3 Item ; GIVEITEMTO Character"
 #define GiveGold(money) "SVAL 0x3 money; GIVEITEMTOMAIN 0"
 #define EndConvo "CALL $9EE2C4"
+#define ClearAllUnits "CLEA 0x0; CLEE 0x0; CLEN 0x0"
+#define FadeOutMusic "MUSCMID 0x7FFF"
 // end of useful macros
 
 #define ChapterTileset(chapter, object, palette, config) "PUSH; ORG 0x8b0890 + (148* chapter) + 4; SHORT object; BYTE palette config; POP"
@@ -30,7 +32,8 @@
 #define PassiveBoosts 0x80
 
 #include "Engine Hacks/SkillSystem/skill_definitions.event"
-#include "Engine Hacks/ForgingAndItemEquip/AccessoryEffectDefinitions.event"
+#include "Engine Hacks/ToT/ForgingAndItemEquip/AccessoryEffectDefinitions.event"
+#include "Graphics/MapSprites/MapSpriteDefs.event"
  
 // #define __DEBUG__ // Uncomment to get the Debug startup menu :p
 
@@ -63,12 +66,12 @@
 #define Smeglinde 19
 #define Kabby 20
 #define Stephen 21
-#define Anthony 22
+#define Anton 22
 #define Myst 23
-#define Leo 24
+#define Khris 24
 
 //Amber Bears
-#define Diana 25
+#define Elle 25
 #define Zane 26
 #define Adamminn 27
 #define William 28
@@ -84,10 +87,16 @@
 //Neutrals
 #define Augustus 37
 #define Lenato 38
+#define Konatsu 39
+
+//Backwards Compatibility
+#define Leo Khris
+#define Diana Elle
+#define Anthony Anton
 
 // Bosses
 
-// Red Lobsters
+// Crimson Wolves
 #define Borgas 0x40
 #define Alva 0x41
 #define WyvernBoss 0x42
@@ -97,20 +106,29 @@
 #define Bruckner 0x51
 #define BearBoss 0x52
 #define Darach 0x53
+#define Larissa 0x54
 
 //Amber Bears
 #define Kajarn 0x60
 #define Rynod 0x61
 #define Ilyron 0x62
 
+//Event Battle Stuff
+#define Orion 0x70
+#define Runa 0x71
+
 // Items
 
 #define PrecisionRing 0x7D
 #define MovRing 0x7E
-#define Caduceus 0xBC 
-#define NormalShield 0xBD  
+#define RenewalRing 0x80
+#define Caduceus 0xBC
+#define NormalShield 0xBD
 #define AegisShield 0xBE
 #define ExpShare 0xBF
+#define PursuitRing 0xC0
+#define KnightRing 0xC1
+#define ArcanaShield 0xC2
 
 #include "ClassDefinitions.event"
 
@@ -126,3 +144,39 @@
 #define LightAffin 8
 #define DarkAffin 9
 #define HeavenAffin 10
+
+// Global Flags
+
+#define UnlockGuideFlag 0xCB
+#define GuideUnlockStrMagSplit 0xCB
+#define GuideReadStrMagSplit 0xCC
+#define GuideUnlockReasonFaith 0xCD
+#define GuideReadReasonFaith 0xCE
+#define GuideUnlockSkillSystem 0xCF
+#define GuideReadSkillSystem 0xD0
+#define GuideUnlockAccessories 0xD1
+#define GuideReadAccessories 0xD2
+#define GuideUnlockUnitColor 0xD3
+#define GuideReadUnitColor 0xD4
+#define GuideUnlockHPBars 0xD5
+#define GuideReadHPBars 0xD6
+
+
+// Red Lobsters
+
+// Purple Jaguars
+
+#define XenithCapturedFlag 0xC0
+#define TrayCapturedFlag 0xC1
+#define HorusCapturedFlag 0xC2
+#define GlacCapturedFlag 0xC3
+#define DaffCapturedFlag 0xC4
+#define SmeglindeCapturedFlag 0xC5
+#define KabbyCapturedFlag 0xC6
+#define StephenCapturedFlag 0xC7
+#define AntonCapturedFlag 0xC8
+#define MystCapturedFlag 0xC9
+#define KhrisCapturedFlag 0xCA
+
+// Amber Bears
+

@@ -17,6 +17,8 @@ POIN BeginningScene EndingScene
 
 TurnBasedEvents:
 //TURN 0x0 Reinforcements1[10,11] 0x0
+TurnEventPlayer(0, BrigandReinforcementsEvent, 9)
+TurnEventPlayer(0, ThiefReinforcementsEvent, 7)
 END_MAIN
 ALIGN 32 //For some reason, CharacterBasedEvents have to be 32-Aligned?
 //ReinforcementEvent(Wave1)
@@ -69,13 +71,13 @@ UNIT
 
 GuardSquad:
 UNIT Rynod Hero Rynod Level(1, Enemy, False) [6,12] 0x00 0x00 0x0 0x00 [SteelSword,HandAxe] NeverMoveAI
+UNIT 0x83 Mercenary Rynod Level(10, Enemy, True) [10,5] 0x00 0x00 0x0 0x00 [SteelSword,Vulnerary] PursueWithoutHeedAI
 UNIT 0x83 Mercenary Rynod Level(10, Enemy, True) [8,0] 0x00 0x00 0x0 0x00 [SteelSword,Vulnerary] PursueWithoutHeedAI
 UNIT 0x83 Fighter Rynod Level(9, Enemy, True) [9,3] 0x00 0x00 0x0 0x00 [SteelAxe] AttackInRangeAI
 UNIT 0x83 Soldier Rynod Level(11, Enemy, True) [16,5] 0x2 0x00 0x00 0x0  [Axereaver] AttackInRangeAI
 UNIT 0x83 LanceKnight Rynod Level(10, Enemy, True) [18,6] 0x00 0x00 0x00 0x0 [SteelLance] AttackInRangeAI
 UNIT 0x83 DarkMage_F Rynod Level(10, Enemy, True) [16,9] 0x2 0x00 0x00 0x0 [Flux] PursueWithoutHeedAI
-UNIT 0x83 LanceKnight_F Rynod Level(9, Enemy, True) [15,11] 0x00 0x00 0x00 0x0 [Javelin, IronLance] PursueWithoutHeedAI
-UNIT 0x83 Thief Rynod Level(10, Enemy, True) [12,12] 0x2 0x00 0x00 0x0 [SteelSword, RedGem] StealingThiefAI
+UNIT 0x83 LanceKnight_F Rynod Level(9, Enemy, True) [15,11] 0x2 0x00 0x00 0x0 [Horseslayer, IronLance] PursueWithoutHeedAI
 UNIT 0x83 Archer Rynod Level(10, Enemy, True) [10,11] 0x00 0x00 0x00 0x0 [Longbow] PursueWithoutHeedAI
 UNIT 0x83 Deacon Rynod Level(12, Enemy, True) [9,10] 0x2 0x00 0x00 0x0 [Mend,Shine] [0x0E,0x12]
 UNIT 0x83 LanceArmor Rynod Level(10, Enemy, True) [6,10] 0x00 0x00 0x00 0x0 [Javelin] NeverMoveAI
@@ -84,21 +86,24 @@ UNIT 0x83 SwordKnight_F Rynod Level(10, Enemy, True) [4,1] 0x00 0x00 0x00 0x0 [S
 UNIT 0x83 DarkMage_F Rynod Level(10, Enemy, True) [9,3] 0x00 0x00 0x00 0x0 [Flux] AttackInRangeAI
 UNIT 0x83 Archer Rynod Level(11, Enemy, True) [11,2] 0x00 0x00 0x00 0x0 [Longbow] AttackInRangeAI
 UNIT 0x83 Myrmidon Rynod Level(10, Enemy, True) [7,7] 0x00 0x00 0x00 0x0 [IronSword] AttackInRangeAI
+UNIT
+
+BrigandReinforcements:
 UNIT 0x73 Brigand Rynod Level(10, Enemy, True) [1,4] 0x00 0x00 0x00 0x0 [Swordreaver] BrigandAI
 UNIT 0x73 Brigand Rynod Level(9, Enemy, True) [1,9] 0x00 0x00 0x00 0x0 [IronAxe] BrigandAI
 UNIT 0x73 Brigand Rynod Level(8, Enemy, True) [2,10] 0x00 0x00 0x00 0x0 [SteelAxe] BrigandAI
-UNIT 
-UNIT  
+UNIT
+
+ThiefReinforcement:
+UNIT 0x83 Thief Rynod Level(10, Enemy, True) [12,12] 0x2 0x00 0x00 0x0 [SteelSword, RedGem] StealingThiefAI
 UNIT
 
 BeginningScene:
-REVEAL Zane
-REVEAL Adamminn
 REVEAL William
 REVEAL Nobody
 REVEAL Jack
 REVEAL Paul
-REVEAL Vollster
+//REVEAL Vollster
 REVEAL Greg
 REVEAL Occam
 /*FADI 1
@@ -119,12 +124,87 @@ LOAD1 0x1 GuardSquad
 CALL $591FD8
 ENDA
 */
+
+MUSC Advance
+SetBackground($E)
+FADU 10
+Text(AB2Opening1)
+SetBackground($A)
+Text(AB2Opening2)
+FADI 10
+FADU 10
+Text(AB2Opening3)
+FADI 10
+SetBackground($31)
+FADU 10
+Text(AB2Opening4)
+FADI 10
+EndConvo
 LOAD1 0x1 GuardSquad
 ENUN
+LOAD3 0x1 Units
+ENUN
+CAM1 Rynod
+ENUN
+FADU 10
+MUSC Tension
+Text(AB2Opening5)
+CAM1 Elle
+ENUN
+Text(AB2Opening6)
+CUMO [11,5]
+STAL 40
+CURE
+REVEAL Vollster
+LOAD2 0x1  VollsterNPC
+ENUN
+Text(AB2Opening7)
+CAM1 Elle
+ENUN
+CUMO Elle
+STAL 40
+CURE
+Text(AB2Opening8)
+CAM1 Vollster
+ENUN
+CUMO Vollster
+STAL 40
+CURE
+Text(AB2Opening9)
+MUSS 0x0
+StartBattle
+MissedAttack(0,0)
+CriticalHit(1,39)
+SetScriptedBattle(78,7,0,100,13,4) 
+FIG1 0x83 Vollster 0x0
+MURE 0x2
+Text(AB2Opening10)
+CAM1 Elle
+ENUN
+CUMO Elle
+STAL 40
+CURE
+Text(AB2Opening11)
+CLEA 0
+
 GotoPrepScreen
 ENDA
+
+
+
 EndingScene:
-MoveToChapter(0x34)
+MNC2 33
 ENDA
 
-MESSAGE Events end at offset CURRENTOFFSET
+BrigandReinforcementsEvent:
+ReinforcementEvent(BrigandReinforcements)
+ENDA
+
+ThiefReinforcementsEvent:
+ReinforcementEvent(ThiefReinforcement)
+ENDA
+
+VollsterNPC:
+UNIT Vollster 0 0 Level(0,Ally,0) [11,5] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+

@@ -4,8 +4,8 @@ Cannot attack at[N]
 1 range[X]
 
 ## NormalShieldUseDesc
-Defence +2[N]
-Speed -2[X]
+Defence +4[N]
+Speed -4[X]
 
 ## AegisShieldUseDesc
 Grants Aegis[N]
@@ -21,3 +21,36 @@ Accuracy +10[X]
 
 ## LegRingUseDesc
 Move +1[X]
+
+## PursuitRingUseDesc
+1 AS to double[X]
+
+## KnightRingUseDesc
+Grants Canto+.[X]
+
+## ArcanaShieldUseDesc
+-25% magic damage[N]
+received[X]
+
+## RenewalRingUseDesc
+Grants Renewal.[X]
+
+## RuneShifterUseDesc
+Swaps Str/Mag[N]
+Swaps Def/Res[X]
+
+## WhetstoneUseDesc
+Effectiveness x4[X]
+
+## AngelRingUseDesc
+Double stat gains[X]
+
+## SailUseDesc
+Can walk on water[X]
+
+## FakeWingsUseDesc
+Cross all terrain[X]
+
+## VampiresFangUseDesc
+Absorb enemy HP[N]
+on hit[X]

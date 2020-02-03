@@ -16,6 +16,9 @@
 #include "P1AB2.event"
 }
 {
+#include "P1AB3.event"
+}
+{
 #include "P1PJ1.event"
 }
 {
@@ -25,6 +28,9 @@
 #include "P1PJ3.event"
 }
 {
+#include "P1PJ4.event"
+}
+{
 #include "P1RL1.event"
 }
 {
@@ -32,4 +38,7 @@
 }
 {
 #include "P1RL3.event"
+}
+{
+#include "P1CW4.event"
 }

@@ -26,16 +26,20 @@ UNIT Tray LanceKnight 0x00 Level(1, Ally, 0) [4,13] 0x00 0x00 0x0 0x00 [0x00] No
 UNIT
 
 
+
 TurnBasedEvents:
+TurnEventPlayer(0, EventAfterPrep, 1)
+TurnEventNPC(0, BearReveal, 2) //stupid macro broke, shoved after bear phase instead
+//TurnEventPlayer(0, BearReveal, 3)
 END_MAIN
 
 CharacterBasedEvents:
 END_MAIN
 
 LocationBasedEvents:
-House(0x3,EndingScene,19,3) //can't seize the floor
+Escape(19,3)
 Chest(LightBrand,8,0)
-Chest(Javelin,16,15)
+Chest(Hammer,16,15)
 END_MAIN
 
 MiscBasedEvents:
@@ -56,20 +60,74 @@ END_MAIN
 ALIGN 4
 
 BeginningScene:
-REVEAL Kabby
+SetBackground(Black)
+SETVAL 0xB 0xFFFFFFFF
+TUTORIALTEXTBOXSTART
+MUSC The_Beginning
+TEXTSHOW PJ2Narration
+TEXTEND
+//REVEAL Kabby
 REVEAL Stephen
 REVEAL Anthony
 REVEAL Leo
 LOAD2 0x1 Units
 LOAD1 0x1 Bad
+MUSC LyonTheme
+Text(Forest_Dense,PJ2OpeningScouting)
+//MUSC Solve_the_Riddle
+Text(Volcano,PJ2OpeningCave) //because the cave background isn't in FE8
+MUSC Tension
+Text(Volcano,PJ2OpeningGrilling)
+MUSC Solve_the_Riddle
+Text(Volcano,PJ2OpeningBetraying)
+Text(Volcano,PJ2OpeningPillar)
+MUSC Raid
+Text(Volcano,PJ2OpeningCaveIn)
+Text(Volcano,PJ2OpeningBruckner)
+Text(Volcano,PJ2OpeningLastScene)
 GotoPrepScreen
 ENDA
 
 EndingScene:
+
+EscapeCapturedCheck(Xenith,XenithCapturedFlag)
+EscapeCapturedCheck(Tray,TrayCapturedFlag)
+EscapeCapturedCheck(Horus,HorusCapturedFlag)
+EscapeCapturedCheck(Glac,GlacCapturedFlag)
+EscapeCapturedCheck(Daff,DaffCapturedFlag)
+EscapeCapturedCheck(Smeglinde,SmeglindeCapturedFlag)
+EscapeCapturedCheck(Kabby,KabbyCapturedFlag)
+EscapeCapturedCheck(Stephen,StephenCapturedFlag)
+EscapeCapturedCheck(Anton,AntonCapturedFlag)
+EscapeCapturedCheck(Myst,MystCapturedFlag)
+EscapeCapturedCheck(Khris,KhrisCapturedFlag)
+
+MUSC Victory
+Text(PJ2Ending)
 MNC2 18
 ENDA
 
 // Events
+EventAfterPrep:
+REVEAL Kabby
+LOAD2 0x1 Creep
+CAM1 Kabby
+FlashCursor(Kabby,60)
+Text(PJ2AfterPrep)
+SETVAL 0xB 0xFFFFFFFF
+TUTORIALTEXTBOXSTART
+TEXTSHOW EscapeWarning
+TEXTEND
+NoFade
+ENDA
+
+BearReveal:
+LOAD1 0x1 BearGroup
+CAM1 BearBoss
+FlashCursor(BearBoss,60)
+Text(PJ2Turn2Bear)
+NoFade
+ENDA
 
 // Manual Movement
 
@@ -78,7 +136,6 @@ ENDA
 // Units
 Bad:
 UNIT Bruckner LanceKnight 0x00 Level(15, Enemy, 0) [18,3] 0x00 0x00 0x0 0x00 [SteelLance, Javelin] NeverMoveAI 
-UNIT BearBoss Bear 0x00 Level(12, NPC, 0) [9,8] 0x00 0x00 0x0 0x00 [SharpClaw] PursueWithoutHeedAI 
 UNIT 0x84 Mage Bruckner Level(12, Enemy, 1) [19,10] 0x00 0x00 0x0 0x00 [Fire] AttackInRangeAI 
 UNIT 0x84 Mage Bruckner Level(12, Enemy, 1) [17,5] 0x00 0x00 0x0 0x00 [Fire] AttackInRangeAI 
 UNIT 0x84 Mage Bruckner Level(12, Enemy, 1) [12,5] 0x00 0x00 0x0 0x00 [Fire] AttackInRangeAI 
@@ -98,7 +155,12 @@ UNIT 0x84 SwordKnight Bruckner Level(12, Enemy, 1) [14,1] 0x00 0x00 0x0 0x00 [Ir
 UNIT 0x84 SwordKnight Bruckner Level(12, Enemy, 1) [13,11] 0x00 0x00 0x0 0x00 [IronSword] AttackInRangeAI 
 UNIT
 
+BearGroup:
+UNIT BearBoss Bear 0x00 Level(12, NPC, 0) [9,8] 0x00 0x00 0x0 0x00 [SharpClaw] PursueWithoutHeedAI 
+UNIT
+
+Creep:
+UNIT Kabby LanceKnight 0x00 Level(1, Ally, 0) [4,12] 0x00 0x00 0x0 0x00 [0x00] NoAI
+UNIT
 
 // Shop Data
-
-MESSAGE Events end at offset currentOffset

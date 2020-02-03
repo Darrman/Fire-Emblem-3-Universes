@@ -13,7 +13,7 @@ of migrating wyverns...[A][X]
 ## RL3OpeningPalace
 # Inside Argalia
 [MR][LoadRodin]
-[ML][LoadFace][0x45][0x01]#some placeholder for Aurea[N]
+[ML][LoadAurea]
 [MR]#Rodin:
 ...Mother.[N]
 [ML]#Aurea:
@@ -299,6 +299,11 @@ Consider it no problem.[A]
 It might not be a bad idea to[N]
 stick around. Let's see where[AN]
 this will take me.[A][X]
+
+## RL3EmptyHouse
+[OpenMidRight][LoadFace][0xFF][0xFF]
+Hm? There doesn't[N]
+seem to be anyone here.[A][X]
 
 ## RL3Ending
 [ML][LoadRodin][MR][LoadFace][0x70][0x01]

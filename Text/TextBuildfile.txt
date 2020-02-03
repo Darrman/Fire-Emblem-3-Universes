@@ -16,6 +16,8 @@ Learned  [X]
 
 #include "EngineHacks\StatScreenText.txt"
 
+#include "Menu\Difficulty.txt"
+
 #0x509 GauntletWeaponTypeName
 #Gauntlet overflows
 Fists[X]
@@ -51,6 +53,20 @@ What's New[X]
 ## GuideSection3
 New Options[X]
 
+## EscapeName
+ Escape[X]
+
+## EscapeDesc
+Have this unit[NL]
+leave this chapter.[X]
+
+## ArriveName
+ Arrive[X]
+
+## ArriveDesc
+Complete this chapter[NL]
+by having this unit arrive.[X]
+
 #include "Menu\SoundRoom.txt"
 
 #0xd4c FreeBlockBegins
@@ -70,3 +86,4 @@ New Options[X]
 #include "Story\StoryBuildfile.txt"
 
 #include "Menu\GuideText.txt"
+

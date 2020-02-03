@@ -50,6 +50,23 @@ ORG $88638
 POIN StatScreen
 ORG $88640
 POIN StatScreenPal 
+
+ORG $95DF74
+POIN CaveBGImg CaveBGTSA CaveBGPal
+
+ORG $75AA28
+POIN CaveBattleBGImg
+ORG $75AA2C
+POIN CaveBattleBGTSA
+ORG $75AA30
+POIN CaveBattleBGPal
+
+ORG $95DF68
+POIN SnowForestBGImg SnowForestBGTSA SnowForestBGPal
+
+ORG $B1C74
+POIN FixedConfigGFX
+
 POP
 
 ALIGN 4
@@ -80,6 +97,46 @@ ALIGN 4
 StatScreenPal:
 #incext Png2Dmp "StatScreen.png" --palette-only
 
+ALIGN 4
+CaveBGImg:
+#incbin "CaveBGImg.dmp"
+
+ALIGN 4
+CaveBGTSA:
+#incbin "CaveBGTSA.dmp"
+
+ALIGN 4
+CaveBGPal:
+#incbin "CaveBGPal.dmp"
+
+ALIGN 4
+CaveBattleBGImg:
+#incbin "CaveBattleBGImg.dmp"
+
+ALIGN 4
+CaveBattleBGTSA:
+#incbin "CaveBattleBGTSA.dmp"
+
+ALIGN 4
+CaveBattleBGPal:
+#incbin "CaveBattleBGPal.dmp"
+
+ALIGN 4
+SnowForestBGImg:
+#incbin "SnowForestBGImg.dmp"
+
+ALIGN 4
+SnowForestBGTSA:
+#incbin "SnowForestBGTSA.dmp"
+
+ALIGN 4
+SnowForestBGPal:
+#incbin "SnowForestBGPal.dmp"
+
+ALIGN 4
+FixedConfigGFX:
+#incext Png2Dmp "Config.png" --lz77
+
 #include "Tiles/Tiles.event"
 #include "TitleScreen/TitleScreen.event"
 #include "TitleMenu/TitleMenu.event"
@@ -89,3 +146,4 @@ StatScreenPal:
 #include "MapSprites/MapSprites.event"
 #include "Animations/ClassAnimationsList.event"
 #include "BattleFrame/BattleFrameInstaller.event"
+#include "Palettes/Palette Setup.event"

@@ -1,0 +1,390 @@
+#include EAstdlib.event
+
+EventPointerTable(19,ThisChapter)
+
+ThisChapter:
+POIN TurnBasedEvents
+POIN CharacterBasedEvents
+POIN LocationBasedEvents
+POIN MiscBasedEvents
+POIN Dunno Dunno Dunno
+POIN Tutorial
+POIN TrapData TrapData
+POIN Units Units
+POIN $0 $0 $0 $0 $0 $0
+POIN BeginningScene EndingScene
+
+Units:
+UNIT Vergil SwordKnight 0x00 Level(1, Ally, 0) [4,13] 0x00 0x00 0x0 0x00 [0x00] NoAI 
+UNIT Horus SwordKnight 0x00 Level(1, Ally, 0) [3,14] 0x00 0x00 0x0 0x00 [0x00] NoAI 
+UNIT Horus SwordKnight 0x00 Level(1, Ally, 0) [3,15] 0x00 0x00 0x0 0x00 [0x00] NoAI 
+UNIT Horus SwordKnight 0x00 Level(1, Ally, 0) [5,14] 0x00 0x00 0x0 0x00 [0x00] NoAI 
+UNIT Horus SwordKnight 0x00 Level(1, Ally, 0) [6,13] 0x00 0x00 0x0 0x00 [0x00] NoAI 
+UNIT Horus SwordKnight 0x00 Level(1, Ally, 0) [6,15] 0x00 0x00 0x0 0x00 [0x00] NoAI 
+UNIT Horus SwordKnight 0x00 Level(1, Ally, 0) [2,13] 0x00 0x00 0x0 0x00 [0x00] NoAI 
+UNIT Horus SwordKnight 0x00 Level(1, Ally, 0) [7,14] 0x00 0x00 0x0 0x00 [0x00] NoAI 
+UNIT
+
+
+TurnBasedEvents:
+END_MAIN
+
+CharacterBasedEvents:
+CharacterEvent(10,AugustusGet,0,Augustus)
+CharacterEvent(11,LenatoGet,0,Lenato)
+END_MAIN
+
+LocationBasedEvents:
+Seize(0x3,EndingScene,15,1)
+Chest(Axereaver,16,10)
+Chest(BlueGem,17,11)
+Chest(KillerAxe,15,12)
+Door(0,7)
+Door(13,13)
+END_MAIN
+
+MiscBasedEvents:
+CauseGameOverIfLordDies
+END_MAIN
+
+Dunno:
+//DO NOT TOUCH
+WORD $00
+
+Tutorial:
+//DO NOT TOUCH
+WORD $00
+
+TrapData:
+END_MAIN
+
+
+OpeningCutsceneDarach:
+UNIT 128 AxeArmor 0 Level(0,Enemy,0) [15,1] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT 128 Soldier 0 Level(0,Enemy,0) [17,6] 0x0 0x0 0x1 REDA15R3 NoItems NoAI
+UNIT
+
+OpeningCutsceneDarach2:
+UNIT Darach AxeArmor 0 Level(0,Enemy,0) [13,12] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT 128 Soldier 0 Level(0,Enemy,0) [12,12] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
+OpeningCutscenePrisoners:
+UNIT Lenato Horseman_F 0 Level(0,NPC,0) [14,15] 0x0 0x0 0x0 0x1 NoItems NoAI //Lenato
+UNIT 129 Soldier 0 Level(0,NPC,0) [16,15] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT 129 Soldier 0 Level(0,NPC,0) [15,14] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT Augustus Priest 0 Level(0,NPC,0) [17,14] 0x0 0x0 0x0 0x1 NoItems NoAI //Augustus, note wonky colours
+UNIT
+
+
+ALIGN 4
+BeginningScene:
+
+SetBackground(Black)
+SETVAL 0xB 0xFFFFFFFF
+TUTORIALTEXTBOXSTART
+MUSC The_Beginning
+TEXTSHOW PJ3OpeningNarration
+TEXTEND
+
+FADI 10
+MUSC 0x2C
+CAM1 [15,1]
+EndConvo
+LOAD1 0x1 OpeningCutsceneDarach
+ENUN
+
+CUMO [15,1]
+STAL 40
+CURE
+
+Text(PJ3Opening1)
+
+FADI 10
+CAM1 [13,12]
+CLEE 0
+LOAD1 0x1 OpeningCutsceneDarach2
+ENUN
+LOAD1 0x1 OpeningCutscenePrisoners
+ENUN
+FADU 10
+
+TEXTSTART
+TEXTSHOW PJ3Opening2
+TEXTEND
+
+MOVE 0 Darach [13,10]
+ENUN
+MOVE 0 Augustus [13,14]
+ENUN
+
+TEXTCONT
+TEXTEND
+
+MOVE 0 128 [12,10]
+
+TEXTCONT
+TEXTEND
+
+MOVE 0 Darach [10,5]
+MOVE 0 128 [10,5]
+ENUN
+
+TEXTCONT
+TEXTEND
+
+FADI 10
+DISA Darach
+DISA Augustus
+CLEE 0
+CLEN 0
+SetBackground($17)
+FADU 10
+Text(PJ3Opening3)
+FADI 10
+SetBackground($15)
+FADU 10
+Text(PJ3Opening4)
+FADI 10
+LOAD1 0x1 Prisoners
+ENUN
+LOAD1 0x1 Bad
+ENUN
+CAM1 [3,12]
+MUSC Tension
+EndConvo
+LOAD2 0x1 Units
+ENUN
+CAM1 [15,1]
+ENUN
+CUMO Darach
+STAL 40
+CURE
+Text(PJ3Opening5)
+
+CAM1 Horus
+ENUN
+Text(PJ3Opening6)
+
+CALL $591FD8 //GotoPrepScreen but without the forced ENDA
+CALL ReloadInCapturedUnits
+NoFade
+ENDA
+
+EndingScene:
+Text(EndOfDemo)
+NoFade
+MNC2 19
+ENDA
+
+// Events
+AugustusGet:
+CHECK_ACTIVE
+SVAL 1 Khris
+BNE 1 1 0xC
+	Text(PJ3TalkAugustusRecruitKhris)
+GOTO 2
+LABEL 1
+	Text(PJ3TalkAgustusRecruit)
+LABEL 2
+TurnAlly(Augustus)
+NoFade
+ENDA
+
+LenatoGet:
+CHECK_ACTIVE
+SVAL 1 Vergil
+BNE 1 1 0xC
+	Text(PJ3TalkLenatoRecruitVergil)
+GOTO 2
+LABEL 1
+	Text(PJ3TalkLenatoRecruit)
+LABEL 2
+TurnAlly(Lenato)
+NoFade
+ENDA
+
+// Manual Movement
+
+// Scripted Fights
+
+// Units
+Bad:
+UNIT Darach AxeArmor 0x00 Level(15, Enemy, 0) [15,1] 0x00 0x00 0x0 0x00 [SteelAxe, HandAxe] GuardTileAI 
+UNIT 0x85 Soldier Darach Level(13, Enemy, 1) [14,3] 0x00 0x00 0x0 0x00 [IronLance] ChaseOnceApproachedAI 
+UNIT 0x85 Soldier Darach Level(13, Enemy, 1) [16,3] 0x00 0x00 0x0 0x00 [IronLance] ChaseOnceApproachedAI 
+UNIT 0x85 Soldier Darach Level(13, Enemy, 1) [13,6] 0x00 0x00 0x0 0x00 [IronLance] GuardTileAI 
+UNIT 0x85 Soldier Darach Level(13, Enemy, 1) [1,8] 0x00 0x00 0x0 0x00 [Javelin] PursueWithoutHeedAI 
+UNIT 0x85 Mage Darach Level(13, Enemy, 1) [0,12] 0x00 0x00 0x0 0x00 [Thunder] PursueWithoutHeedAI 
+UNIT 0x85 Mage Darach Level(13, Enemy, 1) [9,14] 0x00 0x00 0x0 0x00 [Thunder] PursueWithoutHeedAI 
+UNIT 0x85 Mage Darach Level(13, Enemy, 1) [11,13] 0x00 0x00 0x0 0x00 [Thunder] PursueWithoutHeedAI 
+UNIT 0x85 Thief Darach Level(13, Enemy, 1) [1,4] 0x00 0x00 0x0 0x00 [IronSword, Lockpick] LootingThiefAI 
+UNIT 0x85 Thief Darach Level(13, Enemy, 1) [12,1] 0x00 0x00 0x0 0x00 [IronSword, Lockpick] LootingThiefAI 
+UNIT 0x85 BowArmor Darach Level(13, Enemy, 1) [0,14] 0x00 0x00 0x0 0x00 [SteelBow] PursueWithoutHeedAI 
+UNIT 0x85 BowArmor Darach Level(13, Enemy, 1) [9,12] 0x00 0x00 0x0 0x00 [SteelBow] PursueWithoutHeedAI 
+UNIT 0x85 BowArmor Darach Level(13, Enemy, 1) [3,0] 0x00 0x00 0x0 0x00 [SteelBow] PursueWithoutHeedAI 
+UNIT 0x85 BowArmor Darach Level(13, Enemy, 1) [14,6] 0x00 0x00 0x0 0x00 [SteelBow] GuardTileAI 
+UNIT 0x85 Mercenary Darach Level(13, Enemy, 1) [8,8] 0x00 0x00 0x0 0x00 [SteelSword] AttackInRangeAI 
+UNIT 0x85 Mercenary Darach Level(13, Enemy, 1) [6,0] 0x00 0x00 0x0 0x00 [SteelSword] AttackInRangeAI 
+UNIT 0x85 SwordKnight Darach Level(13, Enemy, 1) [4,6] 0x00 0x00 0x0 0x00 [SteelSword] AttackInRangeAI 
+UNIT 0x85 SwordKnight Darach Level(13, Enemy, 1) [11,0] 0x00 0x00 0x0 0x00 [IronBlade] ChaseOnceApproachedAI 
+UNIT 0x85 SwordKnight Darach Level(13, Enemy, 1) [13,9] 0x00 0x00 0x0 0x00 [IronSword] ChaseOnceApproachedAI 
+UNIT 0x85 LanceArmor Darach Level(13, Enemy, 1) [4,10] 0x00 0x00 0x0 0x00 [SteelLance] AttackInRangeAI 
+UNIT 0x85 LanceArmor Darach Level(13, Enemy, 1) [8,5] 0x00 0x00 0x0 0x00 [SteelLance] AttackInRangeAI 
+UNIT 0x85 AxeArmor Darach Level(13, Enemy, 1) [11,5] 0x00 0x00 0x0 0x00 [SteelAxe] AttackInRangeAI 
+UNIT 0x85 AxeArmor Darach Level(13, Enemy, 1) [5,10] 0x00 0x00 0x0 0x00 [SteelAxe] AttackInRangeAI 
+UNIT
+
+Prisoners:
+UNIT Augustus Priest 0x00 Level(12, NPC, 0) [14,15] 0x00 0x00 0x0 0x00 [Heal, Vulnerary] [6,3,0,0]
+UNIT Lenato Horseman_F 0x00 Level(1, NPC, 0) [16,15] 0x00 0x00 0x0 0x00 [IronBow, Vulnerary] [6,3,0,0]
+UNIT
+
+
+// Shop Data
+
+
+ALIGN 4
+ReloadInCapturedUnits:
+CHECK_EVENTID XenithCapturedFlag
+BEQ 1 0 0xC
+	//If captured, do things here
+	ENUT 0x28
+	REVEAL Xenith
+	LOAD1 0 PrisonerXenith
+	ENUN
+LABEL 1
+CHECK_EVENTID TrayCapturedFlag
+BEQ 2 0 0xC
+	//If captured, do things here
+	ENUT 0x28
+	REVEAL Tray
+	LOAD1 0 PrisonerTray
+	ENUN
+LABEL 2
+CHECK_EVENTID HorusCapturedFlag
+BEQ 3 0 0xC
+	//If captured, do things here
+	ENUT 0x28
+	REVEAL Horus
+	LOAD1 0 PrisonerHorus
+	ENUN
+LABEL 3
+CHECK_EVENTID GlacCapturedFlag
+BEQ 4 0 0xC
+	//If captured, do things here
+	ENUT 0x28
+	REVEAL Glac
+	LOAD1 0 PrisonerGlac
+	ENUN
+LABEL 4
+CHECK_EVENTID DaffCapturedFlag
+BEQ 5 0 0xC
+	//If captured, do things here
+	ENUT 0x28
+	REVEAL Daff
+	LOAD1 0 PrisonerDaff
+	ENUN
+LABEL 5
+CHECK_EVENTID SmeglindeCapturedFlag
+BEQ 6 0 0xC
+	//If captured, do things here
+	ENUT 0x28
+	REVEAL Smeglinde
+	LOAD1 0 PrisonerSmeglinde
+	ENUN
+LABEL 6
+CHECK_EVENTID KabbyCapturedFlag
+BEQ 7 0 0xC
+	//If captured, do things here
+	ENUT 0x28
+	REVEAL Kabby
+	LOAD1 0 PrisonerKabby
+	ENUN
+LABEL 7
+CHECK_EVENTID StephenCapturedFlag
+BEQ 8 0 0xC
+	//If captured, do things here
+	ENUT 0x28
+	REVEAL Stephen
+	LOAD1 0 PrisonerStephen
+	ENUN
+LABEL 8
+CHECK_EVENTID AntonCapturedFlag
+BEQ 9 0 0xC
+	//If captured, do things here
+	ENUT 0x28
+	REVEAL Anton
+	LOAD1 0 PrisonerAnton
+	ENUN
+LABEL 9
+CHECK_EVENTID MystCapturedFlag
+BEQ 10 0 0xC
+	//If captured, do things here
+	ENUT 0x28
+	REVEAL Myst
+	LOAD1 0 PrisonerMyst
+	ENUN
+LABEL 10
+CHECK_EVENTID KhrisCapturedFlag
+BEQ 11 0 0xC
+	//If captured, do things here
+	ENUT 0x28
+	REVEAL Khris
+	LOAD1 0 PrisonerKhris
+	ENUN
+LABEL 11
+
+CHECK_EVENTID 0x28
+BEQ 12 0 0xC
+	Text(PJ3PostPrepScreenCaptured) //Text for if there are any captured units reappearing
+	ENUF 0x28 //reset this flag for reuse
+LABEL 12
+NoFade
+ENDA
+
+
+PrisonerXenith:
+UNIT Xenith 0 0 Level(0,Ally,0) [13,15] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
+PrisonerTray:
+UNIT Tray 0 0 Level(0,Ally,0) [15,15] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
+PrisonerHorus:
+UNIT Horus 0 0 Level(0,Ally,0) [17,15] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
+PrisonerGlac:
+UNIT Glac 0 0 Level(0,Ally,0) [17,14] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
+PrisonerDaff:
+UNIT Daff 0 0 Level(0,Ally,0) [16,14] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
+PrisonerSmeglinde:
+UNIT Smeglinde 0 0 Level(0,Ally,0) [15,14] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
+PrisonerKabby:
+UNIT Kabby 0 0 Level(0,Ally,0) [14,14] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
+PrisonerStephen:
+UNIT Stephen 0 0 Level(0,Ally,0) [13,14] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
+PrisonerAnton:
+UNIT Anton 0 0 Level(0,Ally,0) [1,6] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
+PrisonerMyst:
+UNIT Myst 0 0 Level(0,Ally,0) [1,5] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
+PrisonerKhris:
+UNIT Khris 0 0 Level(0,Ally,0) [0,5] 0x0 0x0 0x0 0x1 NoItems NoAI
+UNIT
+
